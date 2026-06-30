@@ -10,61 +10,75 @@
   <header class="app-header">
     <nav class="navbar">
       <h1 class="logo">My Portfolio</h1>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">Menu</button>
-
+      <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기">메뉴</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Introduction</a></li>
-        <li><a href="activities.html" class="active">Activities</a></li>
+        <li><a href="index.html">소개</a></li>
+        <li><a href="activities.html" class="active">활동</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-    <section class="page-title">
-      <h2>Activity List</h2>
+    <section class="page-title reveal">
+      <h2>활동 목록</h2>
       <p>정은석의 프로젝트, 학습 경험, 활동 내용을 정리한 페이지입니다.</p>
     </section>
 
     <section class="activity-list">
-      <article class="material-card activity-card">
-        <span class="tag">Project</span>
+      <article class="material-card activity-card reveal">
+        <span class="emoji">🎵</span>
+        <span class="tag purple">AI 프로젝트</span>
+        <h3>MBTI 감정분석 음악 추천 앱</h3>
+        <p>
+          한국어 BERT 감정분석 모델과 MBTI를 결합해 사용자에게 어울리는 음악을
+          추천하는 웹앱을 만들었습니다. Streamlit과 Hugging Face로 구현하고
+          cloudflared로 배포했습니다.
+        </p>
+        <p class="date">2026 · Python, Streamlit, Hugging Face</p>
+      </article>
+
+      <article class="material-card activity-card reveal">
+        <span class="emoji">🍱</span>
+        <span class="tag blue">데이터 분석</span>
+        <h3>학교 급식 데이터 분석 · 시각화</h3>
+        <p>
+          학교 급식 CSV 데이터를 수집하고 정제해 메뉴 경향과 패턴을 분석했습니다.
+          Pandas로 데이터를 다루고 그래프로 시각화하는 과정을 직접 수행했습니다.
+        </p>
+        <p class="date">2026 · Python, Pandas, Matplotlib</p>
+      </article>
+
+      <article class="material-card activity-card reveal">
+        <span class="emoji">🚀</span>
+        <span class="tag orange">해커톤</span>
+        <h3>청년 정책 매칭 앱</h3>
+        <p>
+          정부 지원 정책을 사용자 조건에 맞게 추천하고, 신청 마감일을 캘린더로
+          관리해주는 AI 서비스를 해커톤에서 기획하고 개발했습니다.
+        </p>
+        <p class="date">2025 · 팀 프로젝트</p>
+      </article>
+
+      <article class="material-card activity-card reveal">
+        <span class="emoji">🎓</span>
+        <span class="tag">전공 학습</span>
+        <h3>컴퓨터인공지능학부 학습</h3>
+        <p>
+          충남대학교 컴퓨터인공지능학부에서 파이썬 프로그래밍, 딥러닝 분류,
+          이산수학 등을 공부하며 개념 중심으로 전공 역량을 쌓고 있습니다.
+        </p>
+        <p class="date">2026 · 충남대학교</p>
+      </article>
+
+      <article class="material-card activity-card reveal">
+        <span class="emoji">💻</span>
+        <span class="tag yellow">웹 개발</span>
         <h3>개인 포트폴리오 웹사이트 제작</h3>
         <p>
-          HTML, CSS, JavaScript를 활용해 자기소개와 활동 목록을 담은 반응형
-          포트폴리오 웹사이트를 제작했습니다.
+          HTML, CSS, JavaScript로 반응형 포트폴리오를 직접 만들고 GitHub와
+          Vercel로 배포했습니다. AI 에이전트 설문 기능도 연동했습니다.
         </p>
-        <p class="date">2026</p>
-      </article>
-
-      <article class="material-card activity-card">
-        <span class="tag">Study</span>
-        <h3>프론트엔드 개발 학습</h3>
-        <p>
-          웹 페이지 구조 설계, 반응형 레이아웃, CSS 스타일링, 기본 JavaScript
-          DOM 조작을 학습하고 실습했습니다.
-        </p>
-        <p class="date">2025 - 2026</p>
-      </article>
-
-      <article class="material-card activity-card">
-        <span class="tag">School</span>
-        <h3>컴퓨터인공지능학부 전공 학습</h3>
-        <p>
-          충남대학교 컴퓨터인공지능학부에서 프로그래밍, 컴퓨터 기초, 인공지능
-          관련 지식을 공부하며 전공 역량을 쌓고 있습니다.
-        </p>
-        <p class="date">2026</p>
-      </article>
-
-      <article class="material-card activity-card">
-        <span class="tag">Learning</span>
-        <h3>JavaScript 미니 프로젝트</h3>
-        <p>
-          메뉴 토글, 버튼 이벤트, 동적 콘텐츠 변경 등 간단한 인터랙션을
-          구현하며 JavaScript 활용 능력을 연습했습니다.
-        </p>
-        <p class="date">2025</p>
+        <p class="date">2026 · HTML, CSS, JavaScript</p>
       </article>
     </section>
   </main>
