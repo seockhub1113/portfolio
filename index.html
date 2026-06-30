@@ -6,76 +6,22 @@
   <title>My Portfolio | Introduction</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
-<form id="contactForm">
-  <input type="text" id="visitorName" placeholder="이름" required>
-  <input type="email" id="visitorEmail" placeholder="이메일" required>
-  <textarea id="visitorMessage" placeholder="AI 에이전트에게 할 질문을 입력하세요" required></textarea>
-  
-  <button type="submit">AI 에이전트에게 질문하기</button>
-</form>
-
-<div id="responseMessage" style="display:none; margin-top: 15px; font-weight: bold;"></div>
-
-<script>
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault(); // 폼 제출 시 페이지가 새로고침되는 것을 막습니다.
-
-  const name = document.getElementById('visitorName').value;
-  const email = document.getElementById('visitorEmail').value;
-  const message = document.getElementById('visitorMessage').value;
-  const responseDiv = document.getElementById('responseMessage');
-
-  responseDiv.style.display = 'block';
-  responseDiv.style.color = 'blue';
-  responseDiv.innerText = 'AI 에이전트가 질문을 분석 중입니다... 잠시만 기다려주세요.';
-
-  // ⚠️ 중요: 아래 URL을 Make.com에서 발급받은 Custom Webhook URL로 교체하세요!
-  const makeWebhookUrl = 'https://hook.us1.make.com/your_unique_webhook_id';
-
-  try {
-    const response = await fetch(makeWebhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        visitor_name: name,
-        visitor_email: email,
-        visitor_message: message
-      })
-    });
-
-    if (response.ok) {
-      responseDiv.style.color = 'green';
-      responseDiv.innerText = '✅ 질문이 성공적으로 접수되었습니다! 입력하신 메일로 AI의 답변이 곧 발송됩니다.';
-      document.getElementById('contactForm').reset(); // 폼 초기화
-    } else {
-      throw new Error('서버 응답 실패');
-    }
-  } catch (error) {
-    responseDiv.style.color = 'red';
-    responseDiv.innerText = '❌ 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.';
-  }
-});
-</script>
 <body>
   <header class="app-header">
     <nav class="navbar">
       <h1 class="logo">My Portfolio</h1>
-
-      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu">Menu</button>
-
+      <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기">메뉴</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Introduction</a></li>
-        <li><a href="activities.html">Activities</a></li>
+        <li><a href="index.html" class="active">소개</a></li>
+        <li><a href="activities.html">활동</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="container">
-    <section class="hero material-card">
+    <section class="hero material-card reveal">
       <div class="hero-text">
-        <p class="eyebrow">Hello, I am</p>
+        <p class="eyebrow">반가워요 👋</p>
         <h2>정은석</h2>
         <p>
           저는 충남대학교 컴퓨터인공지능학부에서 공부하고 있는 학생입니다.
@@ -84,8 +30,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
         </p>
 
         <div class="hero-actions">
-          <a href="activities.html" class="btn primary">View Activities</a>
-          <a href="mailto:your-email@example.com" class="btn secondary">Contact Me</a>
+          <a href="activities.html" class="btn primary">활동 보러가기</a>
+          <a href="#contact" class="btn secondary">질문 남기기</a>
         </div>
       </div>
 
@@ -97,8 +43,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
     </section>
 
     <section class="grid-section">
-      <div class="material-card info-card">
-        <h3>About Me</h3>
+      <div class="material-card info-card reveal">
+        <h3>소개</h3>
         <p>
           새로운 기술을 배우고, 아이디어를 실제 서비스나 웹페이지로 구현하는
           과정에 흥미를 느낍니다. 꾸준한 학습과 프로젝트 경험을 통해 개발
@@ -106,23 +52,43 @@ document.getElementById('contactForm').addEventListener('submit', async function
         </p>
       </div>
 
-      <div class="material-card info-card">
-        <h3>Skills</h3>
+      <div class="material-card info-card reveal">
+        <h3>기술 스택</h3>
         <ul class="chip-list">
           <li>HTML</li>
           <li>CSS</li>
           <li>JavaScript</li>
-          <li>Responsive Design</li>
+          <li>Python</li>
+          <li>Streamlit</li>
         </ul>
       </div>
 
-      <div class="material-card info-card">
-        <h3>Interests</h3>
+      <div class="material-card info-card reveal">
+        <h3>관심 분야</h3>
         <p>
           프론트엔드 개발, 인공지능, UI 디자인, 알고리즘 학습, 그리고 사용자가
           편하게 사용할 수 있는 웹 서비스 제작에 관심이 있습니다.
         </p>
       </div>
+    </section>
+
+    <!-- AI 에이전트 질문 섹션 -->
+    <section id="contact" class="material-card contact-section reveal">
+      <span class="emoji">🤖</span>
+      <h2>AI 에이전트에게 질문하기</h2>
+      <p class="contact-desc">
+        궁금한 점을 남겨주세요. AI 에이전트가 질문을 분석한 뒤,
+        입력하신 이메일로 답변을 보내드립니다.
+      </p>
+
+      <form id="contactForm" class="contact-form">
+        <input type="text" id="visitorName" placeholder="이름" required>
+        <input type="email" id="visitorEmail" placeholder="이메일" required>
+        <textarea id="visitorMessage" rows="4" placeholder="AI 에이전트에게 할 질문을 입력하세요" required></textarea>
+        <button type="submit" class="btn primary">AI 에이전트에게 질문하기</button>
+      </form>
+
+      <div id="responseMessage" class="response-message"></div>
     </section>
   </main>
 
@@ -131,5 +97,5 @@ document.getElementById('contactForm').addEventListener('submit', async function
   </footer>
 
   <script src="script.js"></script>
-</body>
-</html>
+  <script>
+    document.getElementById('contactForm').
